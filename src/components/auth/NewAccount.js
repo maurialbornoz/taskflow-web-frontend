@@ -3,6 +3,7 @@ import {Link, useNavigate} from 'react-router-dom';
 
 import AlertContext from '../../context/alerts/alertContext';
 import AuthContext from '../../context/authentication/authContext';
+import Alert from '../layout/Alert';
 const NewAccount = () => {
     const history = useNavigate();
     // extract from context
@@ -71,12 +72,15 @@ const NewAccount = () => {
 
 
         <div className="user-form">
-            {alert ? ( <div className={`alert ${alert.category}`}>{alert.msg}</div> ) : null}
+            <Alert
+                alert={alert}
+            />
             <div className="form-container dark-shadow">
-                <h1>New Account</h1>
+                <h1 data-cy="title">New Account</h1>
 
                 <form 
                     onSubmit={onSubmit}
+                    data-cy="new-account-form"
                 >
                     <div className="form-field">
                         <label htmlFor="name">Name</label>
@@ -87,6 +91,7 @@ const NewAccount = () => {
                             placeholder='Your Name'
                             value={name}
                             onChange={onChange}
+                            data-cy="name-input"
                          />
                     </div>
 
@@ -99,6 +104,7 @@ const NewAccount = () => {
                             placeholder='Your Email'
                             value={email}
                             onChange={onChange}
+                            data-cy="email-input"
                          />
                     </div>
 
@@ -111,6 +117,7 @@ const NewAccount = () => {
                             placeholder='Your Password'
                             value={password}
                             onChange={onChange}
+                            data-cy="password-input"
                          />
                     </div>
                     
@@ -123,15 +130,25 @@ const NewAccount = () => {
                             placeholder='Repeat Your Password'
                             value={confirm}
                             onChange={onChange}
+                            data-cy="confirm-password-input"
                          />
                     </div>
 
                     <div className="form-field">
-                        <input type="submit" className="btn btn-primary btn-block" value="Sign Up"/>
+                        <input 
+                            type="submit" 
+                            className="btn btn-primary btn-block" 
+                            value="Sign Up"
+                            data-cy="submit-new-account"
+                        />
                     </div>
                 </form>
 
-                <Link to={'/'} className="link-account">
+                <Link 
+                    to={'/'} 
+                    className="link-account"
+                    data-cy="login-link"
+                >
                     Back
                 </Link>
 

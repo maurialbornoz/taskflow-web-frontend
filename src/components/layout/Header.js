@@ -21,13 +21,14 @@ const Header = () => {
     }
     return ( 
         <header className="app-header">
-            {user ? <p className="user-name"><span>{user.name}</span></p> : null}
+            {user ? <p className="user-name" data-cy="hello-user">Hello <span>{user.name}</span></p> : null}
             
 
             <nav className="main-nav">
                 <button 
                     className='btn btn-blank cerrar-sesion'
                     onClick={() => logOutUser()}
+                    data-cy="log-out"
                 >Log Out</button>
             </nav>
         </header>

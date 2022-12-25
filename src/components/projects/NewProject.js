@@ -54,6 +54,7 @@ const NewProject = () => {
                 type='button'
                 className='btn btn-primary btn-block'
                 onClick={onClickForm}
+                data-cy="new-project-button"
             >New Project</button>
 
             {form ?
@@ -70,18 +71,20 @@ const NewProject = () => {
                             name='name'
                             value={name}
                             onChange={onChangeProject}
+                            data-cy="new-project-input"
                         />
         
                         <input 
                             type="submit" 
                             className='btn btn-primary btn-block'    
                             value="Add Project"
+                            data-cy="submit-new-project"
                         />
                     </form>
                 ) : null
             }
 
-            { formError ? <p className="mensaje error">The project name is required.</p> : null }
+            { formError ? <p data-cy="alert" className="mensaje error">The project name is required</p> : null }
 
         </Fragment>
        

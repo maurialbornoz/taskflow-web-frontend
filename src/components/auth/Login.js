@@ -3,6 +3,7 @@ import {Link, useNavigate} from 'react-router-dom';
 
 import AlertContext from '../../context/alerts/alertContext';
 import AuthContext from '../../context/authentication/authContext';
+import Alert from '../layout/Alert';
 const Login = () => {
 
     const history = useNavigate();
@@ -52,12 +53,15 @@ const Login = () => {
 
 
         <div className="user-form">
-            {alert ? ( <div className={`alert ${alert.category}`}>{alert.msg}</div> ) : null}
+            <Alert
+                alert={alert}
+            />
             <div className="form-container dark-shadow">
-                <h1>Log In</h1>
+                <h1 data-cy="title">Log In</h1>
 
                 <form 
                     onSubmit={onSubmit}
+                    data-cy="form-login"
                 >
                     <div className="form-field">
                         <label htmlFor="email">Email</label>
@@ -68,7 +72,8 @@ const Login = () => {
                             placeholder='Your Email'
                             value={email}
                             onChange={onChange}
-                         />
+                            data-cy="email-input"
+                            />
                     </div>
                     <div className="form-field">
                         <label htmlFor="password">Password</label>
@@ -79,15 +84,25 @@ const Login = () => {
                             placeholder='Your Password'
                             value={password}
                             onChange={onChange}
-                         />
+                            data-cy="password-input"
+                            />
                     </div>
 
                     <div className="form-field">
-                        <input type="submit" className="btn btn-primary btn-block" value="Log In"/>
+                        <input 
+                            type="submit" 
+                            className="btn btn-primary btn-block" 
+                            value="Log In"
+                            data-cy="submit-login"
+                        />
                     </div>
                 </form>
 
-                <Link to={'/new-account'} className="link-account">
+                <Link 
+                    to={'/new-account'} 
+                    className="link-account"
+                    data-cy="new-account"
+                >
                     New Account
                 </Link>
 

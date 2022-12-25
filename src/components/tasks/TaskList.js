@@ -11,7 +11,7 @@ const TaskList = () => {
 
     const {projecttasks} = useContext(taskContext);
 
-    if(!project) return <h2>Select a project</h2>
+    if(!project) return <h2 data-cy="select-project">Select a project</h2>
 
     // array destructuring
     const [currentProject] = project;

@@ -81,7 +81,8 @@ const TaskForm = () => {
                         name='name'
                         value={name}
                         onChange={handleChange}
-                    />
+                        data-cy="task-input"
+                        />
                 </div>
 
                 <div className="input-container">
@@ -89,11 +90,12 @@ const TaskForm = () => {
                         type="submit" 
                         className='btn btn-primary btn-block'
                         value={selectedtask ? 'Edit Task' : "Add Task"}
+                        data-cy="submit-task"
                     />
                 </div>
             </form>
 
-            {taskerror ? <p className="mensaje error">Task name is required</p> : null}
+            {taskerror ? <p data-cy="alert" className="mensaje error">Task name is required</p> : null}
         </div>
      );
 }
